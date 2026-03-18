@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geko AI — Legal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --surface: #f8f8f8;
+      --card: #ffffff;
+      --border: #e5e5e5;
+      --border-strong: #d1d1d1;
+      --accent: #111111;
+      --accent-dim: rgba(17,17,17,0.05);
+      --text-primary: #111111;
+      --text-secondary: #555555;
+      --text-muted: #999999;
+      --divider: #eeeeee;
+      --warning-bg: #fafaf5;
+      --warning-border: #d4d400;
+      --warning-text: #6b6b00;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo span {
+      color: var(--text-primary);
+    }
+
+    .nav-back {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--text-primary); }
+
+    /* HERO BAND */
+    .hero {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 72px 40px 56px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.15;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--text-primary);
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      max-width: 420px;
+      margin: 0 auto 32px;
+      font-weight: 400;
+    }
+
+    /* TAB SWITCHER */
+    .tabs {
+      display: inline-flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .tab-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 7px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.18s;
+      color: var(--text-secondary);
+      background: transparent;
+    }
+
+    .tab-btn.active {
+      background: #ffffff;
+      color: var(--text-primary);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .tab-btn:not(.active):hover {
+      color: var(--text-primary);
+      background: rgba(0,0,0,0.04);
+    }
+
+    /* MAIN LAYOUT */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+      background: var(--surface);
+    }
+
+    /* SIDE BY SIDE COLUMNS */
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* SINGLE COLUMN (mobile/tab view) */
+    .single-column {
+      display: none;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* DOCUMENT CARD */
+    .doc-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .doc-header {
+      padding: 24px 28px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--bg);
+    }
+
+    .doc-header-left { flex: 1; }
+
+    .doc-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .doc-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .doc-date {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .doc-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .doc-body {
+      padding: 0;
+      max-height: 680px;
+      overflow-y: auto;
+      background: var(--bg);
+    }
+
+    .doc-body::-webkit-scrollbar { width: 4px; }
+    .doc-body::-webkit-scrollbar-track { background: transparent; }
+    .doc-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    /* SECTIONS */
+    .section-item {
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--divider);
+      transition: background 0.15s;
+    }
+
+    .section-item:last-child { border-bottom: none; }
+    .section-item:hover { background: var(--surface); }
+
+    .section-num {
+      display: inline-block;
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .section-body {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .section-body ul {
+      list-style: none;
+      margin-top: 6px;
+    }
+
+    .section-body ul li {
+      padding: 2px 0;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .section-body ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
+    }
+
+    .section-body a {
+      color: var(--text-primary);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .section-body a:hover { opacity: 0.7; }
+
+    /* WARNING CALLOUT */
+    .callout {
+      margin-top: 8px;
+      padding: 10px 14px;
+      background: var(--warning-bg);
+      border-left: 3px solid #e5e500;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.79rem;
+      color: #5a5a00;
+      line-height: 1.6;
+    }
+
+    /* DIVIDER LABEL */
+    .divider-label {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .divider-label::before,
+    .divider-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    /* FOOTER */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--bg);
+    }
+
+    .footer-logo {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .footer-logo span { color: var(--text-primary); }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text-primary); }
+    .footer-links a.active { color: var(--text-primary); font-weight: 500; }
+
+    /* UPDATE BANNER */
+    .update-banner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 18px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .update-banner strong { color: var(--text-primary); font-weight: 600; }
+
+    .dot {
+      width: 7px; height: 7px;
+      background: #22c55e;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* AI DISCLOSURE BANNER */
+    .ai-disclosure-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #f5f5f5;
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid #111111;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .ai-disclosure-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .ai-disclosure-text strong {
+      display: block;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 860px) {
+      .columns { grid-template-columns: 1fr; }
+      nav { padding: 0 20px; }
+      main { padding: 32px 16px 60px; }
+      footer { flex-direction: column; align-items: flex-start; }
+      .hero { padding: 48px 20px 40px; }
+    }
+
+    /* FADE IN ANIMATION */
+    .doc-card {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.4s ease forwards;
+    }
+
+    .doc-card:nth-child(2) { animation-delay: 0.08s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="https://geko-ai.github.io/Geko-AI/">Geko<span>AI</span></a>
+    <a class="nav-back" href="https://geko-ai.github.io/Geko-AI/">
+      ← Back to site
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">⚖ Legal Documents</div>
+    <h1>Policies &amp; <em>Terms</em></h1>
+    <p class="hero-sub">Everything you need to know about how we handle your data and govern your use of Geko AI.</p>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="setView('both')">Side by Side</button>
+      <button class="tab-btn" onclick="setView('privacy')">Privacy Policy</button>
+      <button class="tab-btn" onclick="setView('terms')">Terms of Service</button>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main>
+    <div class="update-banner">
+      <div class="dot"></div>
+      <span>Both documents were last updated on <strong>March 17, 2026</strong>. Continued use of Geko AI constitutes acceptance.</span>
+    </div>
+
+    <div class="ai-disclosure-banner">
+      <div class="ai-disclosure-icon">🤖</div>
+      <div class="ai-disclosure-text">
+        <strong>Third-Party AI Notice</strong>
+        Geko AI builds and powers its AI assistants using third-party artificial intelligence providers, including large language model (LLM) APIs. Your conversations and data may be processed by these underlying AI systems. By using our services, you acknowledge and accept this. See § 03–04 of our Privacy Policy and § 02, § 06 of our Terms of Service for full details.
+      </div>
+    </div>
+
+    <!-- SIDE BY SIDE -->
+    <div class="columns" id="view-both">
+
+      <!-- PRIVACY POLICY -->
+      <div class="doc-card" id="card-privacy">
+        <div class="doc-header">
+          <div class="doc-header-left">
+            <div class="doc-tag">Document 01</div>
+            <div class="doc-title">Privacy Policy</div>
+            <div class="doc-date">Last updated: March 17, 2026</div>
+          </div>
+          <div class="doc-icon">🔒</div>
+        </div>
+        <div class="doc-body">
+
+          <div class="section-item">
+            <div class="section-num">§ 01</div>
+            <div class="section-title">Information We Collect</div>
+            <div class="section-body">
+              We collect information you provide directly, including:
+              <ul>
+                <li>Name, email, phone number</li>
+                <li>Business information</li>
+                <li>Conversations with AI chatbots or phone agents</li>
+              </ul>
+              We may also automatically collect:
+              <ul>
+                <li>Usage data (interactions, logs, analytics)</li>
+                <li>Device and browser information</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 02</div>
+            <div class="section-title">How We Use Information</div>
+            <div class="section-body">
+              We use collected data to:
+              <ul>
+                <li>Provide and improve our AI chatbot and voice services</li>
+                <li>Respond to inquiries</li>
+                <li>Monitor performance and accuracy</li>
+                <li>Comply with legal obligations</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 03</div>
+            <div class="section-title">AI &amp; Automated Processing</div>
+            <div class="section-body">
+              Geko AI builds its AI assistants using third-party artificial intelligence providers — including external large language model (LLM) APIs — to power its chatbot and voice services. This means conversations and inputs you or your customers submit may be processed by these underlying AI systems.
+              <div class="callout">⚠ Responses generated by these AI systems may not always be accurate and should not be solely relied upon for legal, medical, or financial decisions.</div>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 04</div>
+            <div class="section-title">Data Sharing</div>
+            <div class="section-body">
+              We do not sell personal data. We may share data with:
+              <ul>
+                <li>Cloud providers (hosting and infrastructure)</li>
+                <li>Third-party AI providers — the external language model APIs we use to build and operate our AI assistants (e.g., OpenAI, Anthropic, or similar platforms)</li>
+                <li>Telecom providers (for phone and voice functionality)</li>
+              </ul>
+              Data shared with AI providers is used solely to generate responses and improve service quality, subject to each provider's own privacy policy.
+            </div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 05</div>
+            <div class="section-title">Data Retention</div>
+            <div class="section-body">We retain data only as long as necessary to provide services and meet legal obligations.</div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 06</div>
+            <div class="section-title">Security</div>
+            <div class="section-body">We implement reasonable safeguards, but no system is 100% secure.</div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 07</div>
+            <div class="section-title">Your Rights</div>
+            <div class="section-body">
+              Depending on your location, you may have rights to:
+              <ul>
+                <li>Access your data</li>
+                <li>Request deletion</li>
+                <li>Request correction</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 08</div>
+            <div class="section-title">Third-Party Services</div>
+            <div class="section-body">Our platform may rely on third-party services. Their privacy practices govern their handling of data.</div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 09</div>
+            <div class="section-title">Changes to This Policy</div>
+            <div class="section-body">We may update this policy at any time. Continued use means acceptance of changes.</div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 10</div>
+            <div class="section-title">Contact</div>
+            <div class="section-body">For questions, email us at <a href="mailto:geko.business1@gmail.com">geko.business1@gmail.com</a></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TERMS OF SERVICE -->
+      <div class="doc-card" id="card-terms">
+        <div class="doc-header">
+          <div class="doc-header-left">
+            <div class="doc-tag">Document 02</div>
+            <div class="doc-title">Terms of Service</div>
+            <div class="doc-date">Last updated: March 17, 2026</div>
+          </div>
+          <div class="doc-icon">📋</div>
+        </div>
+        <div class="doc-body">
+
+          <div class="section-item">
+            <div class="section-num">§ 01</div>
+            <div class="section-title">Acceptance of Terms</div>
+            <div class="section-body">By using our services, you agree to these Terms.</div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 02</div>
+            <div class="section-title">Services Provided</div>
+            <div class="section-body">
+              We provide AI-powered chatbot and voice automation tools for business use. Our AI assistants are built using third-party artificial intelligence platforms and large language model (LLM) APIs. Geko AI configures, customises, and deploys these AI tools on your behalf — but the underlying intelligence is powered by external AI providers.
+            </div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 03</div>
+            <div class="section-title">No Guarantees</div>
+            <div class="section-body">
+              We do not guarantee:
+              <ul>
+                <li>Accuracy of AI responses</li>
+                <li>Uninterrupted or error-free service</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 04</div>
+            <div class="section-title">Acceptable Use</div>
+            <div class="section-body">
+              You agree <strong>NOT</strong> to use the service for:
+              <ul>
+                <li>Unlawful activities</li>
+                <li>Spam or unsolicited calls/messages</li>
+                <li>Violating telecom laws (including robocall regulations)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 05</div>
+            <div class="section-title">Compliance Responsibility</div>
+            <div class="section-body">
+              You are responsible for ensuring your use complies with:
+              <ul>
+                <li>Applicable laws (including phone and messaging laws)</li>
+                <li>Customer consent requirements</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 06</div>
+            <div class="section-title">AI Disclaimer</div>
+            <div class="section-body">
+              Geko AI's services are built on top of third-party AI providers. The responses generated are produced by external language models, not solely by Geko AI. We do not control the internal workings of these models, and their outputs may be incorrect, incomplete, or misleading.
+              <div class="callout">⚠ You are responsible for reviewing and monitoring all AI outputs before using them in your business operations. Geko AI is not liable for decisions made based on AI-generated content.</div>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 07</div>
+            <div class="section-title">Limitation of Liability</div>
+            <div class="section-body">
+              We are not liable for:
+              <ul>
+                <li>Damages caused by AI responses</li>
+                <li>Lost profits or business interruption</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 08</div>
+            <div class="section-title">Indemnification</div>
+            <div class="section-body">You agree to indemnify and hold us harmless from claims resulting from your use of the service.</div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 09</div>
+            <div class="section-title">Termination</div>
+            <div class="section-body">We may suspend or terminate your access at any time.</div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 10</div>
+            <div class="section-title">Payments</div>
+            <div class="section-body">All fees are non-refundable unless stated otherwise.</div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 11</div>
+            <div class="section-title">Changes to These Terms</div>
+            <div class="section-body">We may update these terms at any time. Continued use constitutes acceptance.</div>
+          </div>
+
+          <div class="section-item">
+            <div class="section-num">§ 12</div>
+            <div class="section-title">Contact</div>
+            <div class="section-body">For questions, email us at <a href="mailto:geko.business1@gmail.com">geko.business1@gmail.com</a></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Geko<span>AI</span></div>
+    <span class="footer-copy">© 2026 Geko AI. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="https://geko-ai.github.io/Geko-AI/" >← Back to site</a>
+      <a href="#" class="active">Privacy Policy</a>
+      <a href="#" class="active">Terms of Service</a>
+    </div>
+  </footer>
+
+  <script>
+    function setView(mode) {
+      const btns = document.querySelectorAll('.tab-btn');
+      btns.forEach((b, i) => {
+        b.classList.remove('active');
+        if (['both','privacy','terms'][i] === mode) b.classList.add('active');
+      });
+
+      const container = document.getElementById('view-both');
+      const privacy = document.getElementById('card-privacy');
+      const terms = document.getElementById('card-terms');
+
+      if (mode === 'both') {
+        container.style.gridTemplateColumns = '1fr 1fr';
+        privacy.style.display = '';
+        terms.style.display = '';
+      } else if (mode === 'privacy') {
+        container.style.gridTemplateColumns = '1fr';
+        privacy.style.display = '';
+        terms.style.display = 'none';
+        container.style.maxWidth = '760px';
+        container.style.margin = '0 auto';
+      } else {
+        container.style.gridTemplateColumns = '1fr';
+        privacy.style.display = 'none';
+        terms.style.display = '';
+        container.style.maxWidth = '760px';
+        container.style.margin = '0 auto';
+      }
+
+      if (mode === 'both') {
+        container.style.maxWidth = '';
+        container.style.margin = '';
+      }
+    }
+  </script>
+</body>
+</html>
