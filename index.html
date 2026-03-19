@@ -159,6 +159,24 @@
     .form-success h3 { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--g7); letter-spacing: -0.5px; }
     .form-success p { font-size: 14px; font-weight: 300; color: var(--g5); line-height: 1.7; max-width: 280px; }
 
+    /* ── About section ── */
+    .about-section { padding: 6rem 2.5rem; background: var(--g1); border-top: 0.5px solid var(--g2); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-signature { font-family: 'DM Serif Display', serif; font-size: 13px; font-style: italic; color: var(--g4); margin-top: 2rem; letter-spacing: 0.02em; }
+    .about-quote { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 3vw, 32px); line-height: 1.3; color: var(--g7); letter-spacing: -0.5px; font-style: italic; position: relative; padding-left: 1.5rem; }
+    .about-quote::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 2px; background: var(--g3); border-radius: 2px; }
+    .about-founder-card { background: var(--g0); border: 0.5px solid var(--g2); border-radius: 12px; padding: 2rem 2.25rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .about-founder-top { display: flex; align-items: center; gap: 1rem; }
+    .about-avatar { width: 52px; height: 52px; background: var(--g7); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--g0); flex-shrink: 0; font-style: italic; }
+    .about-founder-name { font-size: 16px; font-weight: 500; color: var(--g7); }
+    .about-founder-role { font-size: 12px; font-weight: 400; color: var(--g4); margin-top: 2px; letter-spacing: 0.02em; }
+    .about-founder-body { font-size: 14px; font-weight: 300; color: var(--g5); line-height: 1.75; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .about-tag-pill { font-size: 12px; font-weight: 400; color: var(--g5); background: var(--g1); border: 0.5px solid var(--g2); border-radius: 20px; padding: 4px 12px; }
+    @media (max-width: 720px) {
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
     /* ── Simulation section ── */
     .sim-section { padding: 6rem 2.5rem; background: var(--g7); }
     .sim-section .section-tag { color: var(--g4); }
@@ -217,6 +235,7 @@
     <a href="#how-it-works">How it works</a>
     <a href="#what-you-get">What you get</a>
     <a href="#benefits">Benefits</a>
+    <a href="#about">About</a>
     <a href="#simulation">Simulation</a>
     <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
@@ -277,8 +296,11 @@
       </div>
     </div>
   </div>
+  <div style="margin-top:2.5rem; padding:1.25rem 1.5rem; background:var(--g1); border:0.5px solid var(--g2); border-left:2px solid var(--g3); border-radius:var(--radius); display:flex; align-items:flex-start; gap:12px;">
+    <svg style="width:16px;height:16px;stroke:var(--g4);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:2px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p style="font-size:13px;font-weight:300;color:var(--g5);line-height:1.7;margin:0;"><strong style="font-weight:500;color:var(--g6);">A note on how these tools work:</strong> Both the AI Chatbot and AI Call Handler are not hosted on Geko AI's own servers — they run on third-party platforms built specifically for this technology. Geko AI handles the entire setup process on your behalf, so you never have to deal with the technical complexity of configuring multiple different services yourself. You get one point of contact, and we take care of the rest.</p>
+  </div>
 </section>
-
 <!-- ── HOW IT WORKS ── -->
 <section class="how section-anchor" id="how-it-works">
   <div class="section-tag">How it works</div>
@@ -378,6 +400,41 @@
         <div class="msg msg-typing"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="about-section section-anchor" id="about">
+  <div class="about-inner">
+
+    <div>
+      <div class="section-tag">About Geko AI</div>
+      <h2>Built by someone who <em>gets it</em></h2>
+      <p class="section-lead">Small business ownership is rewarding — but it shouldn't mean being chained to your phone. That's the problem Geko AI was built to solve.</p>
+      <p class="about-quote" style="margin-top:2rem;">"Small business owners deserve time off too. They shouldn't have to sit by the phone waiting for customers to call."</p>
+      <p class="about-signature">— Grant, Founder of Geko AI</p>
+    </div>
+
+    <div class="about-founder-card">
+      <div class="about-founder-top">
+        <div class="about-avatar">G</div>
+        <div>
+          <div class="about-founder-name">Grant</div>
+          <div class="about-founder-role">Founder, Geko AI</div>
+        </div>
+      </div>
+      <div class="about-founder-body">
+        Hi — I'm Grant, and I built Geko AI.<br><br>
+        Running a small business is stressful. One of the biggest sources of that stress? Waiting by the phone for customers to call — never knowing if you're going to miss a lead, a booking, or an urgent request the moment you step away.<br><br>
+        I knew there had to be a better way. AI has reached a point where it can genuinely handle those conversations — professionally, instantly, and around the clock. So I built Geko AI to give small business owners what they deserve: <strong>more time off, without missing a thing.</strong>
+      </div>
+      <div class="about-tags">
+        <span class="about-tag-pill">Built for small business</span>
+        <span class="about-tag-pill">No missed calls</span>
+        <span class="about-tag-pill">More time for you</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -545,7 +602,7 @@
 
   // Active nav link on scroll
   var navLinks = document.querySelectorAll('.nav-links a');
-  var sectionIds = ['solutions', 'how-it-works', 'what-you-get', 'benefits', 'simulation', 'pricing', 'contact'];
+  var sectionIds = ['solutions', 'how-it-works', 'what-you-get', 'benefits', 'about', 'simulation', 'pricing', 'contact'];
   window.addEventListener('scroll', function() {
     var current = '';
     sectionIds.forEach(function(id) {
