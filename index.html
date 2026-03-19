@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,6 +92,24 @@
     .step-title { font-size: 14px; font-weight: 500; color: var(--g7); margin-bottom: 6px; }
     .step-desc { font-size: 13px; font-weight: 300; color: var(--g5); line-height: 1.6; }
 
+    /* ── What You're Really Getting section ── */
+    .wyrg-section { padding: 6rem 2.5rem; background: var(--g0); border-top: 0.5px solid var(--g2); }
+    .wyrg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 3rem; }
+    .wyrg-card { border: 0.5px solid var(--g2); border-radius: 8px; padding: 2.5rem; background: var(--g1); display: flex; flex-direction: column; transition: background 0.2s, border-color 0.2s; }
+    .wyrg-card:hover { background: var(--g0); border-color: var(--g3); }
+    .wyrg-icon { width: 40px; height: 40px; border-radius: 8px; background: var(--g7); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; flex-shrink: 0; }
+    .wyrg-icon svg { width: 18px; height: 18px; stroke: var(--g0); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .wyrg-card-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--g4); margin-bottom: 0.5rem; }
+    .wyrg-card-title { font-family: 'DM Serif Display', serif; font-size: 22px; letter-spacing: -0.5px; line-height: 1.15; color: var(--g7); margin-bottom: 0.75rem; }
+    .wyrg-card-title em { font-style: italic; color: var(--g5); }
+    .wyrg-card-body { font-size: 14px; font-weight: 300; color: var(--g5); line-height: 1.7; margin-bottom: 1.5rem; flex: 1; }
+    .wyrg-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .wyrg-pill { font-size: 12px; font-weight: 400; color: var(--g5); background: var(--g0); border: 0.5px solid var(--g2); border-radius: 20px; padding: 4px 12px; white-space: nowrap; }
+    .wyrg-note { margin-top: 20px; padding: 1rem 1.25rem; background: var(--g1); border-radius: var(--radius); border-left: 2px solid var(--g3); font-size: 13px; font-weight: 300; color: var(--g5); line-height: 1.6; }
+    .wyrg-note strong { font-weight: 500; color: var(--g6); }
+    .wyrg-note a { color: var(--g5); text-decoration: underline; }
+    .wyrg-note a:hover { color: var(--g7); }
+
     .cta-band { padding: 6rem 2.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
     .cta-band h2 { max-width: 600px; }
     .cta-band .section-lead { text-align: center; max-width: 420px; }
@@ -144,6 +163,8 @@
     footer { padding: 2rem 2.5rem; border-top: 0.5px solid var(--g2); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     footer .nav-logo { font-size: 16px; }
     footer p { font-size: 12px; color: var(--g4); }
+    footer a { font-size: 12px; color: var(--g4); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--g7); }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
@@ -154,16 +175,19 @@
       .stat-strip { flex-direction: column; }
       .form-row { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      .wyrg-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+<!-- ── NAV ── -->
 <nav>
   <div class="nav-logo">Geko<span>AI</span></div>
   <div class="nav-links">
     <a href="#solutions">Solutions</a>
     <a href="#how-it-works">How it works</a>
+    <a href="#what-you-get">What you get</a>
     <a href="#benefits">Benefits</a>
     <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
@@ -171,6 +195,7 @@
   <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get started</button>
 </nav>
 
+<!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
@@ -184,6 +209,7 @@
   </div>
 </section>
 
+<!-- ── STAT STRIP ── -->
 <div class="stat-strip">
   <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">Availability — no<br>staff required</div></div>
   <div class="stat-item"><div class="stat-num">~80%</div><div class="stat-label">of customer inquiries<br>are repetitive questions</div></div>
@@ -191,6 +217,7 @@
   <div class="stat-item"><div class="stat-num">1 in 3</div><div class="stat-label">Callers won't leave<br>a voicemail</div></div>
 </div>
 
+<!-- ── SOLUTIONS ── -->
 <section class="section section-anchor" id="solutions">
   <div class="two-col">
     <div>
@@ -223,6 +250,70 @@
   </div>
 </section>
 
+<!-- ── HOW IT WORKS ── -->
+<section class="how section-anchor" id="how-it-works">
+  <div class="section-tag">How it works</div>
+  <h2>Up and running in <em>days</em></h2>
+  <div class="steps">
+    <div class="step"><div class="step-dot">1</div><div class="step-title">We learn your business</div><div class="step-desc">You tell us about your services, FAQs, and how you like to communicate with customers.</div></div>
+    <div class="step"><div class="step-dot">2</div><div class="step-title">We build your AI</div><div class="step-desc">We configure and test your chatbot and/or call handler to match your business voice exactly.</div></div>
+    <div class="step"><div class="step-dot">3</div><div class="step-title">You go live</div><div class="step-desc">We deploy to your website or phone system. You monitor everything from a simple dashboard.</div></div>
+    <div class="step"><div class="step-dot">4</div><div class="step-title">We keep improving</div><div class="step-desc">Your AI learns over time. We review performance with you monthly and make it better.</div></div>
+  </div>
+</section>
+
+<!-- ── WHAT YOU'RE REALLY GETTING ── -->
+<section class="wyrg-section section-anchor" id="what-you-get">
+  <div class="section-tag">Under the hood</div>
+  <h2>What you're <em>really</em> getting from Geko AI</h2>
+  <p class="section-lead">No black boxes. Here's exactly what we build for you — and how it works behind the scenes.</p>
+  <div class="wyrg-grid">
+
+    <!-- Card 1 — AI Chatbot -->
+    <div class="wyrg-card">
+      <div class="wyrg-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="wyrg-card-tag">AI Chatbot</div>
+      <div class="wyrg-card-title">A smart assistant trained on <em>your</em> business</div>
+      <div class="wyrg-card-body">
+        We build a chatbot powered by leading third-party AI — the same technology behind today's most capable language models. But instead of a generic assistant, it's fully personalised to your business: your services, your tone, your FAQs, your hours.<br><br>
+        When a customer visits your site and asks a question, they get an accurate, on-brand answer instantly — day or night, without anyone on your team lifting a finger.
+      </div>
+      <div class="wyrg-pills">
+        <span class="wyrg-pill">Powered by third-party AI</span>
+        <span class="wyrg-pill">Personalised to your business</span>
+        <span class="wyrg-pill">Answers FAQs instantly</span>
+        <span class="wyrg-pill">24/7 on your website</span>
+      </div>
+    </div>
+
+    <!-- Card 2 — Phone Receptionist -->
+    <div class="wyrg-card">
+      <div class="wyrg-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.36-.85a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 17z"/></svg>
+      </div>
+      <div class="wyrg-card-tag">AI Phone Receptionist</div>
+      <div class="wyrg-card-title">More than call answering — it <em>manages</em> your clients</div>
+      <div class="wyrg-card-body">
+        Our AI phone receptionist doesn't just greet callers and take messages. It can create accounts for new clients, log their details directly into your system, and book meetings on your calendar — all without any human involvement.<br><br>
+        Think of it as a front-desk receptionist who never calls in sick, works every weekend, and keeps your client records spotless.
+      </div>
+      <div class="wyrg-pills">
+        <span class="wyrg-pill">Creates client accounts</span>
+        <span class="wyrg-pill">Books meetings</span>
+        <span class="wyrg-pill">Logs every call</span>
+        <span class="wyrg-pill">Zero staff required</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="wyrg-note">
+    <strong>A note on how this works:</strong> Geko AI connects your business to best-in-class third-party AI platforms to power these tools. We handle all the setup, training, and ongoing tuning — you just get the results. See our <a href="legal.html">Privacy Policy</a> for details on how data is handled.
+  </div>
+</section>
+
+<!-- ── BENEFITS ── -->
 <section class="benefits section-anchor" id="benefits">
   <div class="section-tag">Why it matters</div>
   <h2>The cost of a <em>missed</em> customer</h2>
@@ -235,17 +326,7 @@
   </div>
 </section>
 
-<section class="how section-anchor" id="how-it-works">
-  <div class="section-tag">How it works</div>
-  <h2>Up and running in <em>days</em></h2>
-  <div class="steps">
-    <div class="step"><div class="step-dot">1</div><div class="step-title">We learn your business</div><div class="step-desc">You tell us about your services, FAQs, and how you like to communicate with customers.</div></div>
-    <div class="step"><div class="step-dot">2</div><div class="step-title">We build your AI</div><div class="step-desc">We configure and test your chatbot and/or call handler to match your business voice exactly.</div></div>
-    <div class="step"><div class="step-dot">3</div><div class="step-title">You go live</div><div class="step-desc">We deploy to your website or phone system. You monitor everything from a simple dashboard.</div></div>
-    <div class="step"><div class="step-dot">4</div><div class="step-title">We keep improving</div><div class="step-desc">Your AI learns over time. We review performance with you monthly and make it better.</div></div>
-  </div>
-</section>
-
+<!-- ── CHAT DEMO ── -->
 <section style="padding: 6rem 2.5rem; background: var(--g0);">
   <div class="two-col">
     <div>
@@ -271,6 +352,7 @@
   </div>
 </section>
 
+<!-- ── CTA BAND ── -->
 <section class="cta-band section-anchor" id="pricing">
   <div class="section-tag">Get started</div>
   <h2>Ready to stop <em>missing</em> customers?</h2>
@@ -281,6 +363,7 @@
   </div>
 </section>
 
+<!-- ── CONTACT ── -->
 <section class="contact section-anchor" id="contact">
   <div class="contact-inner">
     <div class="contact-info">
@@ -347,13 +430,24 @@
   </div>
 </section>
 
+<!-- ── FOOTER ── -->
 <footer>
   <div class="nav-logo">Geko<span>AI</span></div>
   <p>AI solutions built for small business. No jargon, no lock-ins.</p>
-  <p style="color: var(--g3)">&#169; 2026 Geko AI</p>
+  <div style="display:flex; gap:1.5rem; align-items:center;">
+    <a href="legal.html">Privacy Policy &amp; Terms</a>
+    <p style="color: var(--g3)">&#169; 2026 Geko AI</p>
+  </div>
 </footer>
 
+<!-- ── CHATBASE WIDGET ── -->
 <script>
+  window.chatbaseConfig = { chatbotId: "9KzLh1p4YyPu6RpLOJh18" }
+</script>
+<script src="https://www.chatbase.co/embed.min.js" id="9KzLh1p4YyPu6RpLOJh18" defer></script>
+
+<script>
+  // Chat demo animation
   setTimeout(function() {
     var body = document.getElementById('chat-body');
     var typing = body.querySelector('.msg-typing');
@@ -366,238 +460,9 @@
     }
   }, 3200);
 
-<style>
-  /* ── Section shell ── */
-  .wyrg-section {
-    padding: 96px 24px;
-    background: #ffffff;
-    border-top: 1px solid #f0f0f0;
-  }
-
-  .wyrg-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  /* ── Section label (matches site pattern e.g. "Our solutions", "How it works") ── */
-  .wyrg-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #888888;
-    margin-bottom: 16px;
-  }
-
-  /* ── Heading (matches site italic-mix style) ── */
-  .wyrg-heading {
-    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-    font-weight: 700;
-    line-height: 1.15;
-    color: #0f0f0f;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-
-  .wyrg-heading em {
-    font-style: italic;
-    font-weight: 400;
-  }
-
-  /* ── Sub-line ── */
-  .wyrg-sub {
-    font-size: 1rem;
-    color: #666666;
-    max-width: 560px;
-    line-height: 1.6;
-    margin-bottom: 56px;
-  }
-
-  /* ── Two-card grid ── */
-  .wyrg-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  /* ── Each product card ── */
-  .wyrg-card {
-    border: 1px solid #e8e8e8;
-    border-radius: 16px;
-    padding: 36px 32px;
-    background: #fafafa;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-
-  .wyrg-card:hover {
-    border-color: #d0d0d0;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-  }
-
-  /* ── Card icon badge ── */
-  .wyrg-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 11px;
-    background: #111111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    flex-shrink: 0;
-  }
-
-  .wyrg-icon svg {
-    width: 22px;
-    height: 22px;
-    stroke: #ffffff;
-    fill: none;
-    stroke-width: 1.75;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  /* ── Card product tag ── */
-  .wyrg-card-tag {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #aaaaaa;
-    margin-bottom: 8px;
-  }
-
-  /* ── Card title ── */
-  .wyrg-card-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #0f0f0f;
-    letter-spacing: -0.02em;
-    margin-bottom: 14px;
-    line-height: 1.25;
-  }
-
-  /* ── Card body ── */
-  .wyrg-card-body {
-    font-size: 0.9rem;
-    color: #555555;
-    line-height: 1.65;
-    margin-bottom: 28px;
-    flex: 1;
-  }
-
-  /* ── Feature pills ── */
-  .wyrg-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .wyrg-pill {
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: #444444;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 100px;
-    padding: 5px 12px;
-    white-space: nowrap;
-  }
-
-  /* ── Transparency note strip ── */
-  .wyrg-note {
-    margin-top: 20px;
-    padding: 16px 20px;
-    background: #f5f5f5;
-    border-radius: 10px;
-    border-left: 3px solid #cccccc;
-    font-size: 0.8rem;
-    color: #777777;
-    line-height: 1.6;
-  }
-
-  .wyrg-note strong {
-    color: #333333;
-    font-weight: 600;
-  }
-
-  /* ── Mobile ── */
-  @media (max-width: 720px) {
-    .wyrg-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .wyrg-section {
-      padding: 64px 20px;
-    }
-  }
-</style>
-
-<!-- ── SECTION ── -->
-<section class="wyrg-section" id="what-you-get">
-  <div class="wyrg-inner">
-
-    <p class="wyrg-label">Under the hood</p>
-    <h2 class="wyrg-heading">What you're <em>really</em> getting<br>from Geko AI</h2>
-    <p class="wyrg-sub">No black boxes. Here's exactly what we build for you — and how it works behind the scenes.</p>
-
-    <div class="wyrg-grid">
-
-      <!-- Card 1 — AI Chatbot -->
-      <div class="wyrg-card">
-        <div class="wyrg-icon">
-          <!-- Chat bubble icon -->
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div class="wyrg-card-tag">AI Chatbot</div>
-        <div class="wyrg-card-title">A smart assistant trained on <em>your</em> business</div>
-        <div class="wyrg-card-body">
-          We build a chatbot powered by leading third-party AI — the same technology behind today's most capable language models. But instead of a generic assistant, it's fully personalised to your business: your services, your tone, your FAQs, your hours.<br><br>
-          When a customer visits your site and asks a question, they get an accurate, on-brand answer instantly — day or night, without anyone on your team lifting a finger.
-        </div>
-        <div class="wyrg-pills">
-          <span class="wyrg-pill">Powered by third-party AI</span>
-          <span class="wyrg-pill">Personalised to your business</span>
-          <span class="wyrg-pill">Answers FAQs instantly</span>
-          <span class="wyrg-pill">24/7 on your website</span>
-        </div>
-      </div>
-
-      <!-- Card 2 — Phone Receptionist -->
-      <div class="wyrg-card">
-        <div class="wyrg-icon">
-          <!-- Phone icon -->
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.44 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </div>
-        <div class="wyrg-card-tag">AI Phone Receptionist</div>
-        <div class="wyrg-card-title">More than call answering — it <em>manages</em> your clients</div>
-        <div class="wyrg-card-body">
-          Our AI phone receptionist doesn't just greet callers and take messages. It can create accounts for new clients, log their details directly into your system, and book meetings on your calendar — all without any human involvement.<br><br>
-          Think of it as a front-desk receptionist who never calls in sick, works every weekend, and keeps your client records spotless.
-        </div>
-        <div class="wyrg-pills">
-          <span class="wyrg-pill">Creates client accounts</span>
-          <span class="wyrg-pill">Books meetings</span>
-          <span class="wyrg-pill">Logs every call</span>
-          <span class="wyrg-pill">Zero staff required</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Transparency note -->
-    <div class="wyrg-note">
-      <strong>A note on how this works:</strong> Geko AI connects your business to best-in-class third-party AI platforms to power these tools. We handle all the setup, training, and ongoing tuning — you just get the results. See our <a href="/legal.html" style="color:#555555;">Privacy Policy</a> for details on how data is handled.
-    </div>
-
-  </div>
-</section>
-
+  // Active nav link on scroll
   var navLinks = document.querySelectorAll('.nav-links a');
-  var sectionIds = ['solutions','how-it-works','benefits','pricing','contact'];
+  var sectionIds = ['solutions', 'how-it-works', 'what-you-get', 'benefits', 'pricing', 'contact'];
   window.addEventListener('scroll', function() {
     var current = '';
     sectionIds.forEach(function(id) {
@@ -609,6 +474,7 @@
     });
   });
 
+  // Contact form submission
   function submitForm() {
     var first    = document.getElementById('f-first').value.trim();
     var last     = document.getElementById('f-last').value.trim();
@@ -666,32 +532,3 @@
 
 </body>
 </html>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>My AI Chatbot</title>
-</head>
-<body>
-
-<h1>Welcome to My Site</h1>
-<p>Ask the chatbot anything!</p>
-
-<script>
-  window.chatbaseConfig = {
-    chatbotId: "9KzLh1p4YyPu6RpLOJh18"
-  }
-</script>
-<script
-  src="https://www.chatbase.co/embed.min.js"
-  id="9KzLh1p4YyPu6RpLOJh18"
-  defer>
-</script>
-
-</body>
-</html>
-<script>
-  window.chatbaseConfig = {
-    chatbotId: "9KzLh1p4YyPu6RpLOJh18"
-  }
-</script>
-<a href="legal.html">Privacy Policy & Terms</a>
