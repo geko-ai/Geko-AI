@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -160,6 +159,35 @@
     .form-success h3 { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--g7); letter-spacing: -0.5px; }
     .form-success p { font-size: 14px; font-weight: 300; color: var(--g5); line-height: 1.7; max-width: 280px; }
 
+    /* ── Simulation section ── */
+    .sim-section { padding: 6rem 2.5rem; background: var(--g7); }
+    .sim-section .section-tag { color: var(--g4); }
+    .sim-section h2 { color: var(--g0); }
+    .sim-section h2 em { color: var(--g3); }
+    .sim-section .section-lead { color: var(--g3); }
+    .sim-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+    .sim-info { display: flex; flex-direction: column; gap: 2rem; }
+    .sim-callout { background: var(--g6); border: 0.5px solid var(--g5); border-radius: 8px; padding: 1.5rem 1.75rem; }
+    .sim-callout-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--g4); margin-bottom: 0.5rem; }
+    .sim-callout-phone { font-family: 'DM Serif Display', serif; font-size: 28px; letter-spacing: -0.5px; color: var(--g0); margin-bottom: 0.25rem; }
+    .sim-callout-sub { font-size: 13px; font-weight: 300; color: var(--g4); line-height: 1.5; }
+    .sim-points { display: flex; flex-direction: column; gap: 1rem; }
+    .sim-point { display: flex; align-items: flex-start; gap: 12px; }
+    .sim-point-dot { width: 6px; height: 6px; background: var(--g4); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+    .sim-point-text { font-size: 14px; font-weight: 300; color: var(--g4); line-height: 1.6; }
+    .sim-point-text strong { font-weight: 500; color: var(--g0); }
+    .sim-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .sim-widget-wrap { border: 0.5px solid var(--g5); border-radius: 12px; overflow: hidden; background: var(--g6); min-height: 520px; display: flex; flex-direction: column; }
+    .sim-widget-header { padding: 14px 18px; border-bottom: 0.5px solid var(--g5); background: var(--g7); display: flex; align-items: center; gap: 10px; }
+    .sim-widget-dot { width: 8px; height: 8px; background: var(--g5); border-radius: 50%; }
+    .sim-widget-title { font-size: 13px; font-weight: 500; color: var(--g3); }
+    .sim-widget-status { font-size: 11px; color: #5a9e6f; margin-left: auto; }
+    .sim-widget-body { flex: 1; position: relative; min-height: 460px; }
+    .sim-widget-body iframe { width: 100%; height: 100%; min-height: 460px; border: none; display: block; }
+    @media (max-width: 720px) {
+      .sim-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
     footer { padding: 2rem 2.5rem; border-top: 0.5px solid var(--g2); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     footer .nav-logo { font-size: 16px; }
     footer p { font-size: 12px; color: var(--g4); }
@@ -189,6 +217,7 @@
     <a href="#how-it-works">How it works</a>
     <a href="#what-you-get">What you get</a>
     <a href="#benefits">Benefits</a>
+    <a href="#simulation">Simulation</a>
     <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
   </div>
@@ -202,7 +231,6 @@
     <div class="hero-tag">AI solutions for small business</div>
     <h1>Your business,<br><em>always on.</em></h1>
     <p class="hero-sub">We build AI chatbots and call-answering systems that work for you around the clock — so you never miss a customer, a question, or a sale.</p>
-<p style="margin-top: 0.75rem; font-size: 15px; font-weight: 500; color: var(--g6); letter-spacing: -0.01em;">An AI receptionist that responds to calls, texts, and website chats — 24/7.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a free demo</button>
       <button class="btn-ghost" onclick="document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'})">See how it works</button>
@@ -353,6 +381,64 @@
   </div>
 </section>
 
+<!-- ── SIMULATION ── -->
+<section class="sim-section section-anchor" id="simulation">
+  <div class="section-tag">Live simulation</div>
+  <h2>These AIs are built <em>specifically</em><br>for your business</h2>
+  <p class="section-lead" style="max-width:520px; margin-top:1rem;">Not a generic chatbot. Not an off-the-shelf assistant. Every Geko AI is trained on your services, your tone, and your customers. Try it out below — then imagine it working for your business, 24/7.</p>
+
+  <div class="sim-inner">
+
+    <!-- Left: context + phone CTA -->
+    <div class="sim-info">
+
+      <div class="sim-callout">
+        <div class="sim-callout-label">Call our AI receptionist</div>
+        <div class="sim-callout-phone">(984) 900-8761</div>
+        <div class="sim-callout-sub">Call this number to speak with a live Geko AI phone receptionist — tailored specifically for our business. Hear exactly what your customers would experience.</div>
+      </div>
+
+      <div class="sim-points">
+        <div class="sim-point">
+          <div class="sim-point-dot"></div>
+          <div class="sim-point-text"><strong>Built for your business, not ours.</strong> The chatbot on the right and the phone line above are demos tailored to Geko AI. Your version would know your services, your prices, and your customers.</div>
+        </div>
+        <div class="sim-point">
+          <div class="sim-point-dot"></div>
+          <div class="sim-point-text"><strong>Ask it anything.</strong> Try a real question you'd expect from a customer — pricing, availability, bookings. It's designed to answer naturally, not robotically.</div>
+        </div>
+        <div class="sim-point">
+          <div class="sim-point-dot"></div>
+          <div class="sim-point-text"><strong>Want this on your website?</strong> Geko AI sets everything up for you. No code, no technical knowledge — just a finished AI that works from day one.</div>
+        </div>
+      </div>
+
+      <div class="sim-cta-row">
+        <button class="btn-primary" style="background:var(--g0);color:var(--g7);" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get this for my business</button>
+        <button class="btn-ghost" style="border-color:var(--g5);color:var(--g3);" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a free demo</button>
+      </div>
+
+    </div>
+
+    <!-- Right: embedded chatbot -->
+    <div class="sim-widget-wrap">
+      <div class="sim-widget-header">
+        <div class="sim-widget-dot"></div>
+        <div class="sim-widget-title">Geko AI · Live Demo</div>
+        <div class="sim-widget-status">&#9679; Online</div>
+      </div>
+      <div class="sim-widget-body">
+        <iframe
+          src="https://www.chatbase.co/chatbot-iframe/9KzLh1p4YyPu6RpLOJh18"
+          title="Geko AI Chatbot Demo"
+          allow="microphone"
+        ></iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ── CTA BAND ── -->
 <section class="cta-band section-anchor" id="pricing">
   <div class="section-tag">Get started</div>
@@ -441,11 +527,7 @@
   </div>
 </footer>
 
-<!-- ── CHATBASE WIDGET ── -->
-<script>
-  window.chatbaseConfig = { chatbotId: "9KzLh1p4YyPu6RpLOJh18" }
-</script>
-<script src="https://www.chatbase.co/embed.min.js" id="9KzLh1p4YyPu6RpLOJh18" defer></script>
+<!-- Chatbase widget removed — chatbot is embedded in the Simulation section above -->
 
 <script>
   // Chat demo animation
@@ -463,7 +545,7 @@
 
   // Active nav link on scroll
   var navLinks = document.querySelectorAll('.nav-links a');
-  var sectionIds = ['solutions', 'how-it-works', 'what-you-get', 'benefits', 'pricing', 'contact'];
+  var sectionIds = ['solutions', 'how-it-works', 'what-you-get', 'benefits', 'simulation', 'pricing', 'contact'];
   window.addEventListener('scroll', function() {
     var current = '';
     sectionIds.forEach(function(id) {
